@@ -73,7 +73,7 @@ function common() {
 # Puppet
 function ansible() {
 
-  ansible-playbook /home/$USER/JoanDotFiles/ansible/playbook.yml --connection=local
+  ansible-playbook /pathTO/DotFiles/ansible/playbook.yml --connection=local
 
 }
 
@@ -82,7 +82,7 @@ function ansible() {
 # VS Code
 function vscode() {
 
-  cat /home/$USER/JoanDotFiles/extensions.txt | xargs -L 1 code-insiders --install-extension
+  cat /pathTO/DotFiles/extensions.txt | xargs -L 1 code-insiders --install-extension
   
 }
 
