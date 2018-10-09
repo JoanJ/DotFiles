@@ -1,0 +1,76 @@
+---
+
+- name: run the playbook tasks on the localhost
+  hosts: 127.0.0.1
+  sudo: true
+  tasks:
+
+- name: print out the hostname of target
+  command: hostname
+  
+- name: ensure aptitude is installed
+  command: apt-get -y install aptitude
+  
+- name: update the apt package index i.e. apt-get update
+  apt: update_cache=yes
+
+- name: upgrade system packages i.e. apt-get upgrade
+  apt: upgrade=yes
+
+- name: install pakages needed
+  apt: name={{ item }} state=present update_cache=yes
+  with_items:
+   - git
+   - gcc
+   - g++
+   - make
+   - software-properties-common
+   - curl
+   - htop
+   - ssh
+   - screen
+   - tree
+   - build-essential
+   - dialog
+   - libssl-dev
+   - apt-transport-https
+   - lsb-release
+   - ca-certificates
+   - jq
+   - unzip
+   - wget
+   - meld
+   - nano
+   - mysql-client
+   - terminator
+   - python-pip
+   - network-manager-openvpn-gnome
+   - openvpn
+   - remina 
+   - docker-ce
+   - sublime
+
+- name: Ensure python-pip package
+  sudo: true
+  apt:
+   name=python-pip
+   state=present
+
+- name: Install awscli
+  sudo: true
+  apt: name=awscli
+    state=present
+
+- name: Install python-pip
+  sudo: true
+  apt: name=python-pip
+    state=present
+
+- name: Install awscli pip
+  sudo: true
+  pip: name=awscli
+       state=present
+
+- name: Ensure AWSCLI upgrade
+  sudo: true
+  shell: pip install awscli==1.15.85
