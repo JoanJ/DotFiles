@@ -19,6 +19,7 @@
 
 - name: install pakages needed
   apt: name={{ item }} state=present update_cache=yes
+  ignore_errors: true
   with_items:
    - git
    - gcc
@@ -50,6 +51,8 @@
    - sublime
    - gimp
    - vim
+   - shutter
+   
 
 
 - name: Ensure python-pip package
