@@ -43,12 +43,14 @@
    - nano
    - mysql-client
    - terminator
-   - python-pip
    - network-manager-openvpn-gnome
    - openvpn
    - remina 
    - docker-ce
    - sublime
+   - gimp
+   - vim
+
 
 - name: Ensure python-pip package
   sudo: true
